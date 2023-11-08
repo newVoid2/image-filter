@@ -12,7 +12,11 @@ export const useImageStore = defineStore("image", {
     }),
     actions: {
         upload(e: DragEvent) {
-            console.log(e);
-        }
+            if(!e.dataTransfer) return ;
+            const tempFile = e.dataTransfer.files[0];
+            if(!tempFile.type.match("image.*")) return;
+
+            this.file = tempFile;
+        },
     }
 });
