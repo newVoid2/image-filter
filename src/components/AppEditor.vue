@@ -26,6 +26,14 @@
 
 <script setup lang="ts">
 import { useImageStore } from '@/stores/image';
+import useReader from '@/composables/use-reader';
+
 const filters = ["oceanic", "vintage", "rosetint"];
 const store = useImageStore();
+const {reader} = useReader(store.file, () => {
+    if(!reader.result) return;
+
+    const dataURL = reader.result.toString();
+    console.log(dataURL);
+});
 </script>
