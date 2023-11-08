@@ -17,7 +17,7 @@
           {{ filter }}
         </button>
         </div>
-        <a class="bg-indigo-700 py-4 block w-full mt-2 text-center">
+        <a class="bg-indigo-700 py-4 block w-full mt-2 text-center" v-if="store.file" :href="canvasImgURL" :download="store.file.name" >
           Download
         </a>
       </div>
@@ -28,10 +28,10 @@
 import { useImageStore } from '@/stores/image';
 import useReader from '@/composables/use-reader';
 import useCanvas from '@/composables/use-canvas';
-
 const filters = ["oceanic", "vintage", "rosetint"];
 const store = useImageStore();
-const {canvasE1, loadImage, drawOriginalImage,filterImage} = useCanvas();
+console.log(store.file);
+const {canvasE1, loadImage, drawOriginalImage,filterImage, canvasImgURL} = useCanvas();
 const {reader} = useReader(store.file, () => {
     if(!reader.result) return;
 
