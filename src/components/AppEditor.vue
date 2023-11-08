@@ -31,11 +31,17 @@ import useCanvas from '@/composables/use-canvas';
 
 const filters = ["oceanic", "vintage", "rosetint"];
 const store = useImageStore();
-const {canvasE1, loadImage} = useCanvas();
+const {canvasE1, loadImage, drawOriginalImage,filterImage} = useCanvas();
 const {reader} = useReader(store.file, () => {
     if(!reader.result) return;
 
     const dataURL = reader.result.toString();
     loadImage(dataURL);
+});
+
+store.$subscribe((mutation, state) => {
+    drawOriginalImage();
+    filterImage(state.filter);
+
 });
 </script>
