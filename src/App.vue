@@ -3,11 +3,7 @@
     class="font-['Quicksand'] max-w-xl bg-white p-8 shadow-2xl rounded absolute m-auto left-0 right-0 mt-32"
   >
     <h1 class="text-center text-3xl text-indigo-700">Vue Filters</h1>
-    <div
-      class="text-center my-8 py-32 text-slate-700 italic rounded border-4 border-double border-slate-700/25"
-    >
-      Drag and drop image.
-    </div>
+   <AppUpload />
     <div class="my-8">
       <canvas width="448" height="448"></canvas>
       <div class="text-white text-xl mt-4">
